@@ -435,6 +435,16 @@ class Playoff extends Model
             $otherTime = Carbon::create($year, $month, $day, 20, 0, 0, $timezone);
             $matchArray = $this->createSEMatches(6, $times);
             $matchArray[61]['wbp'] = $otherTime;
+         } else if ($this->type == 'de4') {
+            $times = [  0 => Carbon::create($year, $month, $day, 16, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        1 => Carbon::create($year, $month, $day, 17, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        2 => Carbon::create($year, $month, $day, 20, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        3 => Carbon::create($year, $month, $day, 21, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        4 => Carbon::create($year, $month, $day, 19, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        5 => Carbon::create($year, $month, $day, 21, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                        6 => Carbon::create($year, $month, $day, 21, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
+                    ];
+            $matchArray = $this->createDEMatches(2, $times);    
         } else if ($this->type == 'de8') {
             $times = [  0 => Carbon::create($year, $month, $day, 18, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
                         1 => Carbon::create($year, $month, $day, 19, 0, 0, $timezone)->setTimezone(TimezoneHelper::defaultTimezone()),
